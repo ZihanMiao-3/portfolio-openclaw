@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stent Deployment FEA | Zihan Miao</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Inter, system-ui, sans-serif;
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: transform .5s cubic-bezier(.4,0,.2,1);
+            will-change: transform;
+        }
+
+        .gallery-slide {
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        .pb-bar {
+            height: 3px;
+            background: rgba(255,255,255,.25);
+            border-radius: 9999px;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .pb-fill {
+            height: 100%;
+            background: #fff;
+            border-radius: 9999px;
+            width: 0;
+        }
+
+        .lightbox {
+            background: rgba(0,0,0,.92);
+            backdrop-filter: blur(6px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+
+            .reveal.in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        img.zoomable {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+
+    <!-- NAV -->
+    <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-100">
+        <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+            <a href="../index.html" class="font-bold text-xl text-slate-900">Zihan Miao</a>
+            <div class="hidden md:flex gap-7 text-sm font-medium">
+                <a href="../index.html#projects" class="text-slate-500 hover:text-blue-600 transition">Projects</a>
+                <a href="../index.html#skills" class="text-slate-500 hover:text-blue-600 transition">Skills</a>
+                <a href="../index.html#experience" class="text-slate-500 hover:text-blue-600 transition">Experience</a>
+                <a href="../index.html#contact" class="text-slate-500 hover:text-blue-600 transition">Contact</a>
+            </div>
+            <button id="mob-btn" class="md:hidden text-slate-700"><i class="fa fa-bars text-xl"></i></button>
+        </div>
+        <div id="mob-menu" class="md:hidden hidden border-t border-slate-100 bg-white px-5 py-3 space-y-2 text-sm font-medium">
+            <a href="../index.html#projects" class="block py-1.5 text-slate-600">Projects</a>
+            <a href="../index.html#skills" class="block py-1.5 text-slate-600">Skills</a>
+            <a href="../index.html#experience" class="block py-1.5 text-slate-600">Experience</a>
+            <a href="../index.html#contact" class="block py-1.5 text-slate-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="bg-slate-50 border-b border-slate-100">
+        <div class="max-w-5xl mx-auto px-5 py-14">
+            <div class="flex items-center gap-2 text-sm text-slate-400 mb-5">
+                <a href="../index.html#projects" class="hover:text-blue-600 transition flex items-center gap-1">
+                    <i class="fa fa-arrow-left text-xs"></i> Projects
+                </a>
+                <span>/</span><span>Advanced FEA Module — DCU 2026</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-3 py-1 bg-blue-50   text-blue-700   rounded-full text-xs font-medium">Nonlinear FEA</span>
+                <span class="px-3 py-1 bg-green-50  text-green-700  rounded-full text-xs font-medium">ANSYS Mechanical</span>
+                <span class="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-medium">Contact Mechanics</span>
+                <span class="px-3 py-1 bg-yellow-50 text-yellow-700 rounded-full text-xs font-medium">Plasticity · Hyperelasticity</span>
+                <span class="px-3 py-1 bg-red-50    text-red-700    rounded-full text-xs font-medium">SolidWorks · Parametric Study</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">
+                Nonlinear Simulation of<br class="hidden md:block" /> Balloon-Expandable Stent Deployment
+            </h1>
+            <p class="text-slate-500 max-w-2xl leading-relaxed">
+                A highly nonlinear finite element study in ANSYS Mechanical investigating the kinematic expansion and plastic deformation of a cardiovascular stent under balloon inflation — validated against published literature (Chua et al.).
+            </p>
+
+            <!-- Hero image -->
+            <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900">
+                <img src="../images/works2/fig1-stent-overview.jpg"
+                     alt="Stent-balloon assembly — inflated configuration with von Mises stress distribution"
+                     class="zoomable w-full max-h-[420px] object-contain bg-slate-900">
+                <div class="px-5 py-3 text-white/70 text-xs bg-slate-800">
+                    Stent–balloon assembly at peak inflation (0.409 MPa). Diamond-cell pattern opens radially; highest von Mises stresses concentrate at the inner cell crowns — the primary plastic hinge locations.
+                </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-6 text-sm text-slate-400">
+                <span class="flex items-center gap-1.5"><i class="fa fa-calendar       text-blue-400"></i> 2025 – 2026</span>
+                <span class="flex items-center gap-1.5"><i class="fa fa-users          text-blue-400"></i> Group Project · Zihan: CAD &amp; Parametric Analysis</span>
+                <span class="flex items-center gap-1.5"><i class="fa fa-laptop         text-blue-400"></i> ANSYS Mechanical · SolidWorks</span>
+                <span class="flex items-center gap-1.5"><i class="fa fa-graduation-cap text-blue-400"></i> MEC1054 Advanced FEA, DCU</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SECTION 1: HOW IT WORKS ───────────────────────── -->
+    <section class="py-16 border-b border-slate-100 reveal">
+        <div class="max-w-5xl mx-auto px-5">
+            <h2 class="text-2xl font-bold mb-1">How the Simulation Works</h2>
+
+            <div class="rounded-xl bg-blue-50 border border-blue-100 px-6 py-5 mb-8 text-slate-700 text-sm leading-relaxed">
+                <p class="font-semibold text-slate-900 mb-1">Three simultaneous nonlinearities</p>
+                <p>The balloon uses a <strong>Mooney-Rivlin hyperelastic</strong> model (C₁₀ = 1.069 MPa, C₀₁ = 0.711 MPa) to capture large-strain rubber-like behaviour. The SS304 stent uses <strong>bilinear isotropic hardening</strong> (E = 193 GPa, σ_y = 207 MPa, E_t = 692 MPa). <strong>Frictional surface-to-surface contact</strong> couples the two bodies. Internal balloon pressure ramps linearly from 0 to the target value over 1.635 ms, replicating the Chua et al. deployment protocol.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="rounded-xl border border-slate-200 p-5 bg-white">
+                    <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 font-bold text-base flex items-center justify-center mb-3">1</div>
+                    <h4 class="font-semibold mb-1 text-sm">Elastic Loading Stage</h4>
+                    <p class="text-slate-500 text-xs leading-relaxed">At low pressures the balloon inflates and the stent responds elastically. All three pressure cases share a nearly identical stress trajectory — rapidly reaching ~270–280 MPa within the first 0.2 ms, dominated by elastic deformation with local yielding just initiating at cell corners.</p>
+                </div>
+                <div class="rounded-xl border border-slate-200 p-5 bg-white">
+                    <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 font-bold text-base flex items-center justify-center mb-3">2</div>
+                    <h4 class="font-semibold mb-1 text-sm">Plastic Hinging &amp; Nonlinear Divergence</h4>
+                    <p class="text-slate-500 text-xs leading-relaxed">After a short plateau, the three curves diverge sharply at ~0.8 ms. Once corner stress exceeds 207 MPa, plastic hinges form and the stent expands rapidly. Higher pressure drives a disproportionately larger stress jump and wider plastic zones through the strut network.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SECTION 2: CAD CONTRIBUTION ───────────────────── -->
+    <section class="py-16 border-b border-slate-100 reveal">
+        <div class="max-w-5xl mx-auto px-5">
+            <h2 class="text-2xl font-bold mb-1">SolidWorks Geometry Preparation</h2>
+            <p class="text-slate-500 text-sm mb-8">My contribution to the group project included building the full stent geometry and the 1/4-symmetry model in SolidWorks before importing into ANSYS.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- SolidWorks gallery -->
+                <div>
+                    <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900" style="aspect-ratio:4/3">
+                        <div class="gallery-track h-full" id="cad-track">
+                            <div class="gallery-slide h-full relative">
+                                <img src="../images/works2/cad-full-stent.jpg"
+                                     alt="SolidWorks full stent geometry — diamond-cell pattern"
+                                     class="zoomable w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                                    <p class="text-white text-xs font-medium">Full stent geometry modelled in SolidWorks — diamond-cell pattern based on Chua et al.</p>
+                                </div>
+                            </div>
+                            <div class="gallery-slide h-full relative">
+                                <img src="../images/works2/cad-quarter-stent.jpg"
+                                     alt="1/4 symmetry model cut in SolidWorks"
+                                     class="zoomable w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                                    <p class="text-white text-xs font-medium">1/4 symmetry cut — reduces computational cost while preserving structural response accuracy</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 left-0 w-full flex gap-1.5 px-3 pt-3 z-10 pointer-events-none">
+                            <div class="pb-bar"><div class="pb-fill" id="cad-pb-0"></div></div>
+                            <div class="pb-bar"><div class="pb-fill" id="cad-pb-1"></div></div>
+                        </div>
+                        <button class="gal-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="cad"><i class="fa fa-chevron-left text-xs"></i></button>
+                        <button class="gal-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="cad"><i class="fa fa-chevron-right text-xs"></i></button>
+                    </div>
+                    <div id="cad-dots" class="flex justify-center gap-1.5 mt-3"></div>
+                </div>
+
+                <!-- CAD description -->
+                <div class="flex flex-col justify-center space-y-4">
+                    <div class="rounded-xl border border-slate-200 bg-white p-5">
+                        <h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                            <i class="fa fa-cube text-blue-500"></i> Full Stent Model
+                        </h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">The complete stent was drawn in SolidWorks following the diamond-cell geometry specified in Chua et al., with uniform strut width and thickness. The geometry was parameterised for dimensional consistency before export.</p>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 bg-white p-5">
+                        <h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2 text-sm">
+                            <i class="fa fa-scissors text-blue-500"></i> 1/4 Symmetry Simplification
+                        </h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Exploiting the two planes of symmetry in the stent–balloon assembly, a quarter-model was cut in SolidWorks and exported to ANSYS. This reduced the node count significantly while maintaining accurate prediction of stress distribution and radial expansion.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SECTION 3: KEY RESULTS ─────────────────────────── -->
+    <section class="py-16 bg-slate-50 border-b border-slate-100 reveal">
+        <div class="max-w-5xl mx-auto px-5">
+            <h2 class="text-2xl font-bold mb-1">Key Results</h2>
+            <p class="text-slate-500 text-sm mb-4">Parametric study across three inflation pressures: 0.35 MPa, 0.409 MPa, and 0.50 MPa. Pressure applied as a linear ramp over 1.635 ms in all cases.</p>
+
+            <div class="rounded-xl bg-green-50 border border-green-100 px-5 py-4 mb-10 text-slate-700 text-sm leading-relaxed">
+                <strong>In short:</strong> The model reproduces Chua et al.'s deformation pattern and stress hotspot locations. The parametric study identified <strong>0.409 MPa as the optimal deployment pressure</strong> — beyond this point, stress escalates disproportionately relative to additional diameter gain, increasing structural risk without meaningful clinical benefit.
+            </div>
+
+            <!-- Result 1: Stress-time chart -->
+            <div class="mb-14">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">1</div>
+                    <h3 class="font-semibold text-base">Von Mises Stress–Time Response (Three Pressure Levels)</h3>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                    <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900">
+                        <img src="../images/works2/fig4-14-stress-time.jpg"
+                             alt="Fig 4.14 — Von Mises stress-time histories: 0.35 / 0.409 / 0.50 MPa"
+                             class="zoomable w-full object-cover">
+                        <div class="px-4 py-3 text-white/70 text-xs bg-slate-800">
+                            Fig 4.14 — Von Mises stress–time histories for 0.35 MPa, 0.409 MPa and 0.5 MPa. Curves show similar behaviour in the initial loading stage, followed by a pronounced divergence in the plastic regime.
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-sm text-slate-600">
+                        <p>In the early stage of loading, all three curves follow a very similar trend, with stress rising rapidly and reaching approximately <strong>270–280 MPa</strong> within the first 0.2 ms — dominated by elastic deformation with local yielding initiating at the cell corners.</p>
+                        <p>After a short plateau, the curves begin to separate clearly at around <strong>0.8 ms</strong>. The response becomes strongly nonlinear, with stress increasing much more rapidly in the higher-pressure cases.</p>
+                        <div class="rounded-lg bg-white border border-slate-200 p-4">
+                            <p class="text-xs font-semibold text-slate-700 mb-3">Peak von Mises stress at end of loading</p>
+                            <div class="space-y-2.5">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs text-slate-500">0.35 MPa</span>
+                                    <div class="flex items-center gap-2">
+                                        <div class="h-1.5 w-16 rounded-full bg-blue-200"></div>
+                                        <span class="text-xs font-semibold text-blue-600">~430 MPa</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs text-slate-500">0.409 MPa <span class="text-red-500 font-medium">(baseline)</span></span>
+                                    <div class="flex items-center gap-2">
+                                        <div class="h-1.5 w-24 rounded-full bg-red-300"></div>
+                                        <span class="text-xs font-semibold text-red-600">~570 MPa</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs text-slate-500">0.50 MPa</span>
+                                    <div class="flex items-center gap-2">
+                                        <div class="h-1.5 w-32 rounded-full bg-green-300"></div>
+                                        <span class="text-xs font-semibold text-green-600">~750 MPa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400">A relatively small increase in applied pressure yields a disproportionately large increase in stress once plastic deformation has spread through the stent structure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result 2: Stress contours -->
+            <div>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-7 h-7 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center">2</div>
+                    <h3 class="font-semibold text-base">Deformed Configurations &amp; Stress Contours</h3>
+                </div>
+
+                <!-- 0.409 MPa -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
+                    <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900">
+                        <img src="../images/works2/fig4-15-stress-0409.jpg"
+                             alt="Fig 4.15 — Deformed stent at 0.409 MPa with von Mises stress contour"
+                             class="zoomable w-full object-cover">
+                        <div class="px-4 py-3 text-white/70 text-xs bg-slate-800">
+                            Fig 4.15 — Deformed configuration and equivalent von Mises stress at 0.409 MPa. Substantial radial expansion with noticeable foreshortening; high stresses concentrated at cell junctions extending into connecting struts.
+                        </div>
+                    </div>
+                    <div class="rounded-lg border-l-4 border-green-400 bg-white px-5 py-4 shadow-sm">
+                        <p class="font-semibold text-slate-800 text-sm mb-2">0.409 MPa — Balanced deployment</p>
+                        <p class="text-xs text-slate-500 leading-relaxed">A larger radial expansion is obtained and the stent cells open clearly, accompanied by noticeable axial foreshortening. The stress distribution becomes more widespread, with plastic zones extending further from the corner regions into the connecting struts. This case represents a balanced deployment condition — substantial expansion while the stress level, although significantly above yield (207 MPa), remains below the extreme values reached at 0.5 MPa.</p>
+                    </div>
+                </div>
+
+                <!-- 0.35 vs 0.50 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900">
+                        <img src="../images/works2/fig4-16-stress-compare.jpg"
+                             alt="Fig 4.16 — Comparison: 0.35 MPa (a) vs 0.50 MPa (b)"
+                             class="zoomable w-full object-cover">
+                        <div class="px-4 py-3 text-white/70 text-xs bg-slate-800">
+                            Fig 4.16 — (a) 0.35 MPa: modest expansion, plasticity localised at hinges. (b) 0.50 MPa: extensive plastic zone across strut network, pronounced dog-boning at balloon ends.
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="rounded-lg border-l-4 border-blue-300 bg-white px-5 py-4 shadow-sm">
+                            <p class="font-semibold text-slate-800 text-sm mb-1">0.35 MPa — Under-expanded</p>
+                            <p class="text-xs text-slate-500 leading-relaxed">The stent expands only moderately and the balloon remains nearly cylindrical. Stress is mainly concentrated at the hinges and junctions of the diamond cells — pressure is insufficient to drive more extensive deployment of the strut network.</p>
+                        </div>
+                        <div class="rounded-lg border-l-4 border-red-400 bg-white px-5 py-4 shadow-sm">
+                            <p class="font-semibold text-slate-800 text-sm mb-1">0.50 MPa — Over-pressurised</p>
+                            <p class="text-xs text-slate-500 leading-relaxed">Largest expansion, but at the cost of a very pronounced stress increase. High plastic deformation spreads across the strut network and the balloon ends exhibit a more pronounced dog-boning effect — further radial gain becomes structurally inefficient, with a much stronger rise in local stress.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conclusion callout -->
+                <div class="mt-8 rounded-xl bg-white border border-slate-200 px-6 py-5 text-sm text-slate-600 leading-relaxed">
+                    <strong class="text-slate-800">Overall conclusion:</strong>
+                    The pressure–diameter response of the stent is markedly nonlinear. At low and intermediate pressures the structure expands in a relatively controlled manner, but once loading exceeds the baseline case of 0.409 MPa, the plastic response accelerates rapidly and stress rises much faster than the apparent geometric gain. Within the present model, <strong>0.409 MPa is identified as the optimal reference deployment pressure</strong> — providing substantial expansion without the extreme stress escalation observed at 0.5 MPa.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── REFLECTION ─────────────────────────────────────── -->
+    <section class="py-20 bg-slate-50 reveal">
+        <div class="max-w-5xl mx-auto px-5">
+
+            <h2 class="text-2xl font-bold mb-6">Reflection</h2>
+            <div class="rounded-2xl border-l-4 border-blue-500 bg-white px-7 py-6 shadow-sm">
+                <p class="text-slate-600 leading-relaxed italic text-sm">"This project gave me hands-on experience with the most demanding class of engineering simulation: problems where geometry, material, and boundary conditions all change simultaneously and nonlinearly. Designing and drawing the stent geometry in SolidWorks — including the 1/4-symmetry simplification — and then running the parametric pressure study built a complete end-to-end understanding of how CAD decisions directly affect simulation accuracy and result interpretation. Quantifying the nonlinear trade-off between deployment pressure, expansion gain, and structural stress showed me how FEA connects directly to real clinical engineering decisions."</p>
+            </div>
+
+            <div class="border-t border-slate-200 my-10"></div>
+
+            <h3 class="text-lg font-semibold text-slate-700 mb-6">Tools &amp; Skills Applied</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+                <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+                    <i class="fa fa-cube text-2xl mb-2" style="color:#1a365d"></i>
+                    <p class="font-semibold text-slate-900 text-sm mb-0.5">SolidWorks CAD</p>
+                    <p class="text-slate-400 text-xs">Full stent &amp; 1/4 symmetry model</p>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+                    <i class="fa fa-laptop text-2xl mb-2" style="color:#1a365d"></i>
+                    <p class="font-semibold text-slate-900 text-sm mb-0.5">ANSYS Mechanical</p>
+                    <p class="text-slate-400 text-xs">Implicit quasi-static solver</p>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+                    <i class="fa fa-circle-o-notch text-2xl mb-2" style="color:#1a365d"></i>
+                    <p class="font-semibold text-slate-900 text-sm mb-0.5">Nonlinear FEA</p>
+                    <p class="text-slate-400 text-xs">Large deformation · Plasticity</p>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+                    <i class="fa fa-exchange text-2xl mb-2" style="color:#1a365d"></i>
+                    <p class="font-semibold text-slate-900 text-sm mb-0.5">Contact Mechanics</p>
+                    <p class="text-slate-400 text-xs">Frictional surface-to-surface</p>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+                    <i class="fa fa-tint text-2xl mb-2" style="color:#1a365d"></i>
+                    <p class="font-semibold text-slate-900 text-sm mb-0.5">Hyperelasticity</p>
+                    <p class="text-slate-400 text-xs">Mooney-Rivlin balloon model</p>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+                    <i class="fa fa-line-chart text-2xl mb-2" style="color:#1a365d"></i>
+                    <p class="font-semibold text-slate-900 text-sm mb-0.5">Parametric Study</p>
+                    <p class="text-slate-400 text-xs">3 pressure levels compared</p>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+                    <i class="fa fa-bar-chart text-2xl mb-2" style="color:#1a365d"></i>
+                    <p class="font-semibold text-slate-900 text-sm mb-0.5">Post-Processing</p>
+                    <p class="text-slate-400 text-xs">Stress contours · Time histories</p>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+                    <i class="fa fa-book text-2xl mb-2" style="color:#1a365d"></i>
+                    <p class="font-semibold text-slate-900 text-sm mb-0.5">Technical Writing</p>
+                    <p class="text-slate-400 text-xs">Advanced FEA Report, DCU 2026</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER NAV -->
+    <div class="border-t border-slate-100 py-8">
+        <div class="max-w-5xl mx-auto px-5 flex justify-between items-center text-sm">
+            <a href="work1.html" class="text-blue-600 hover:underline flex items-center gap-1">
+                <i class="fa fa-arrow-left text-xs"></i> Previous Project
+            </a>
+            <a href="../index.html#projects" class="text-blue-600 hover:underline flex items-center gap-1">
+                All Projects <i class="fa fa-th text-xs"></i>
+            </a>
+        </div>
+    </div>
+
+    <footer class="py-8 bg-slate-900 text-center text-slate-400 text-sm">
+        © 2026 Zihan Miao. All rights reserved.
+    </footer>
+
+    <button id="btt" class="fixed bottom-8 right-8 w-11 h-11 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+        <i class="fa fa-arrow-up text-sm"></i>
+    </button>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox fixed inset-0 z-[60] hidden flex-col items-center justify-center p-4">
+        <button id="lb-close" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white text-3xl flex items-center justify-center transition">&times;</button>
+        <img id="lb-img" src="" alt="" class="max-w-[95vw] max-h-[83vh] object-contain rounded-md shadow-2xl">
+        <p id="lb-cap" class="text-white/70 text-sm mt-4 max-w-xl text-center"></p>
+    </div>
+
+    <script>
+        const galleries = {};
+        function initGallery(id) {
+            const track = document.getElementById(id + '-track');
+            if (!track) return;
+            const slides = track.querySelectorAll('.gallery-slide');
+            const n = slides.length;
+            const dotsEl = document.getElementById(id + '-dots');
+            let cur = 0;
+            const dotEls = [];
+            if (dotsEl) {
+                for (let i = 0; i < n; i++) {
+                    const d = document.createElement('span');
+                    d.className = 'inline-block h-2 rounded-full bg-slate-300 transition-all duration-300 cursor-pointer';
+                    d.style.width = '.5rem';
+                    d.addEventListener('click', () => goTo(i));
+                    dotsEl.appendChild(d);
+                    dotEls.push(d);
+                }
+            }
+            function goTo(i) {
+                cur = ((i % n) + n) % n;
+                track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+                dotEls.forEach((d, j) => {
+                    d.style.width = j === cur ? '1.5rem' : '.5rem';
+                    d.style.background = j === cur ? '#1e3a5f' : '#cbd5e1';
+                });
+                for (let j = 0; j < n; j++) {
+                    const pb = document.getElementById(id + '-pb-' + j);
+                    if (!pb) continue;
+                    pb.style.transition = 'none';
+                    pb.style.width = j === cur ? '100%' : '0%';
+                }
+            }
+            goTo(0);
+            galleries[id] = { prev: () => goTo(cur - 1), next: () => goTo(cur + 1) };
+        }
+        ['cad'].forEach(initGallery);
+        document.querySelectorAll('.gal-prev').forEach(btn =>
+            btn.addEventListener('click', () => galleries[btn.dataset.gal]?.prev()));
+        document.querySelectorAll('.gal-next').forEach(btn =>
+            btn.addEventListener('click', () => galleries[btn.dataset.gal]?.next()));
+
+        // lightbox
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbCap = document.getElementById('lb-cap');
+        document.querySelectorAll('img.zoomable').forEach(img => {
+            img.addEventListener('click', () => {
+                lbImg.src = img.src;
+                lbCap.textContent = img.alt;
+                lb.classList.remove('hidden');
+                lb.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        function closeLB() {
+            lb.classList.add('hidden');
+            lb.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+        document.getElementById('lb-close').addEventListener('click', closeLB);
+        lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
+        // scroll reveal
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // back to top
+        const btt = document.getElementById('btt');
+        window.addEventListener('scroll', () => {
+            const show = scrollY > 300;
+            btt.classList.toggle('opacity-0', !show);
+            btt.classList.toggle('invisible', !show);
+        });
+        btt.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // mobile menu
+        document.getElementById('mob-btn')?.addEventListener('click', () =>
+            document.getElementById('mob-menu').classList.toggle('hidden'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDMS Microfluidic Chip | Zihan Miao</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; }
+    /* Gallery */
+    .gallery-track { display:flex; transition: transform .5s cubic-bezier(.4,0,.2,1); will-change:transform; }
+    .gallery-slide  { flex-shrink:0; width:100%; }
+    .pb-bar  { height:3px; background:rgba(255,255,255,.25); border-radius:9999px; overflow:hidden; flex:1; }
+    .pb-fill { height:100%; background:#fff; border-radius:9999px; width:0; }
+    /* Lightbox */
+    .lightbox { background:rgba(0,0,0,.92); backdrop-filter:blur(6px); }
+    /* Fade-in on scroll */
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .55s ease, transform .55s ease; }
+    .reveal.in  { opacity:1; transform:translateY(0); }
+    /* Zoom cursor on every clickable image */
+    img.zoomable { cursor:zoom-in; }
+  </style>
+</head>
+<body class="bg-white text-slate-800">
+
+<!-- NAV -->
+<nav class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-100">
+  <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="../index.html" class="font-bold text-xl text-slate-900">Zihan Miao</a>
+    <div class="hidden md:flex gap-7 text-sm font-medium">
+      <a href="../index.html#projects"    class="text-slate-500 hover:text-blue-600 transition">Projects</a>
+      <a href="../index.html#skills"      class="text-slate-500 hover:text-blue-600 transition">Skills</a>
+      <a href="../index.html#experience"  class="text-slate-500 hover:text-blue-600 transition">Experience</a>
+      <a href="../index.html#contact"     class="text-slate-500 hover:text-blue-600 transition">Contact</a>
+    </div>
+    <button id="mob-btn" class="md:hidden text-slate-700"><i class="fa fa-bars text-xl"></i></button>
+  </div>
+  <div id="mob-menu" class="md:hidden hidden border-t border-slate-100 bg-white px-5 py-3 space-y-2 text-sm font-medium">
+    <a href="../index.html#projects"   class="block py-1.5 text-slate-600">Projects</a>
+    <a href="../index.html#skills"     class="block py-1.5 text-slate-600">Skills</a>
+    <a href="../index.html#experience" class="block py-1.5 text-slate-600">Experience</a>
+    <a href="../index.html#contact"    class="block py-1.5 text-slate-600">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO HEADER -->
+<section class="bg-slate-50 border-b border-slate-100">
+  <div class="max-w-5xl mx-auto px-5 py-14">
+    <div class="flex items-center gap-2 text-sm text-slate-400 mb-5">
+      <a href="../index.html#projects" class="hover:text-blue-600 transition flex items-center gap-1"><i class="fa fa-arrow-left text-xs"></i> Projects</a>
+      <span>/</span><span>MEng Final Year Project — DCU 2026</span>
+    </div>
+    <div class="flex flex-wrap gap-2 mb-5">
+      <span class="px-3 py-1 bg-blue-50   text-blue-700   rounded-full text-xs font-medium">Microfluidics</span>
+      <span class="px-3 py-1 bg-green-50  text-green-700  rounded-full text-xs font-medium">Soft Lithography</span>
+      <span class="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-medium">Mechanical Design</span>
+      <span class="px-3 py-1 bg-yellow-50 text-yellow-700 rounded-full text-xs font-medium">SolidWorks · FDM</span>
+      <span class="px-3 py-1 bg-red-50    text-red-700    rounded-full text-xs font-medium">PDMS · Centrifugal LoD</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">PDMS Microfluidic Chip<br class="hidden md:block"/> for Sequential Cell Capture</h1>
+    <p class="text-slate-500 max-w-2xl leading-relaxed">
+      A centrifugal microfluidic chip that captures individual mammalian cells in trap pocket and relocates them into shared co-location chamber via 90° mechanical indexing — no on-chip valves required.
+    </p>
+    <div class="mt-4 rounded-xl bg-slate-50 border border-slate-200 px-5 py-4 text-sm text-slate-600 leading-relaxed">
+      <strong class="text-slate-800">Why this matters:</strong>
+      Studying how a cancer cell and an immune cell interact requires placing them <em>one-to-one</em> inside a confined micro-chamber and observing what happens.
+      Existing approaches either rely on random loading — leaving most chambers empty or over-filled — or require complex on-chip valves that are expensive to fabricate.
+      This platform solves both problems using only centrifugal force and a single 90° mechanical rotation: simple, low-cost, and valve-free.
+    </div>
+    <div class="mt-6 flex flex-wrap gap-6 text-sm text-slate-400">
+      <span class="flex items-center gap-1.5"><i class="fa fa-calendar text-blue-400"></i> 2025 – 2026</span>
+      <span class="flex items-center gap-1.5"><i class="fa fa-user    text-blue-400"></i> Individual Project</span>
+      <span class="flex items-center gap-1.5"><i class="fa fa-flask   text-blue-400"></i> DCU Microfluidics Lab</span>
+      <span class="flex items-center gap-1.5"><i class="fa fa-user-md text-blue-400"></i> Supervised by Dr. Eadaoin Carthy</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 1  HOW IT WORKS ─────────────────────────── -->
+<section class="py-16 border-b border-slate-100 reveal">
+  <div class="max-w-5xl mx-auto px-5">
+    <h2 class="text-2xl font-bold mb-1">How It Works</h2>
+
+    <div class="rounded-xl bg-blue-50 border border-blue-100 px-6 py-5 mb-8 text-slate-700 text-sm leading-relaxed">
+      <p class="font-semibold text-slate-900 mb-1">Key concept — two distinct locations</p>
+      <p>A trap pocket (24.55 µm aperture) is the capture site — it holds exactly one cell during spinning. A co-location chamber (57.83 µm diameter) is the shared storage site downstream. After 90° indexing, the centrifugal force re-aligns with a 30 µm transfer channel connecting the two — cells are driven by centrifugal sedimentation from the trap pocket through the transfer channel into the co-location chamber. The trap pocket is then empty and ready for a second cell population.</p>
+    </div>
+
+    <!-- Principle diagram -->
+    <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900 mb-8">
+      <img src="../images/works1/fig1-1-principle-abh.jpg"
+           alt="Fig 1.1 – Rotation-assisted sequential capture concept (a–h)"
+           class="zoomable w-full max-h-[400px] object-contain bg-slate-900">
+      <div class="px-5 py-3 text-white/70 text-xs">
+        Fig 1.1 — Sequential three-population capture workflow.
+(a–b) <span style="color:#fca5a5;font-weight:600">Red cells (Pop. 1)</span> loaded at 0°, captured in trap pockets, then platform rotates 90° — red cells driven through the transfer channel into co-location chambers. Platform returns to 0°.
+(c–e) <span style="color:#fde68a;font-weight:600">Yellow cells (Pop. 2)</span> loaded at 0°, captured in the now-empty trap pockets, then indexed 90° into co-location chambers alongside red cells. Platform returns to 0°.
+(f–h) <span style="color:#93c5fd;font-weight:600">Blue cells (Pop. 3)</span> loaded at 0°, captured in trap pockets, then relocated into co-location chambers — all three populations co-located.
+      </div>
+    </div>
+
+    <!-- 3-step cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="rounded-xl border border-slate-200 p-5 bg-white">
+        <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 font-bold text-base flex items-center justify-center mb-3">1</div>
+        <h4 class="font-semibold mb-1 text-sm">Primary Capture</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Platform at 0°. 5 Hz centrifugal force (≈ 5.4 g) drives cells into the 24.55 µm trap pocket. A lodged cell acts as a hydrodynamic plug, steering subsequent cells to neighbouring empty trap pockets.</p>
+      </div>
+      <div class="rounded-xl border border-slate-200 p-5 bg-white">
+        <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 font-bold text-base flex items-center justify-center mb-3">2</div>
+        <h4 class="font-semibold mb-1 text-sm">Mechanical Indexing</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">Spring-loaded latch actuates the 86:22 gear train, rotating the chip carrier exactly 90° and aligning the centrifugal vector with the internal transfer channels.</p>
+      </div>
+      <div class="rounded-xl border border-slate-200 p-5 bg-white">
+        <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 font-bold text-base flex items-center justify-center mb-3">3</div>
+        <h4 class="font-semibold mb-1 text-sm">Cell Relocation</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">The same body force pushes captured cells through the 30 µm transfer channel into the 57.83 µm co-location chamber — trap pockets are now empty for a second cell population.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 2  METHODOLOGY ──────────────────────────── -->
+<section class="py-16 border-b border-slate-100 reveal">
+  <div class="max-w-5xl mx-auto px-5">
+    <h2 class="text-2xl font-bold mb-1">Methodology</h2>
+    <p class="text-slate-500 text-sm mb-10">Two parallel workstreams: PDMS soft lithography and custom rotational platform design.</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+      <!-- FABRICATION gallery -->
+      <div>
+        <h3 class="font-semibold text-base mb-2 flex items-center gap-2"><i class="fa fa-flask text-blue-500"></i> PDMS Chip Fabrication</h3>
+        <p class="text-slate-500 text-xs leading-relaxed mb-5">Sylgard 184 (10:1) cast against a laser-engraved Ni master, vacuum degassed, cured at 70 °C for 2.5 h, demoulded, and oxygen-plasma bonded to glass. A 45-min vacuum priming cycle wets all dead-end features before cell loading.</p>
+        <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900" style="aspect-ratio:4/3">
+          <div class="gallery-track h-full" id="fab-track">
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig5-2-mixing.jpg" alt="PDMS gravimetric mixing (13.11 g base + 1.35 g curing agent)" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Step 1 — Gravimetric mixing: 13.11 g base + 1.35 g curing agent</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig5-3-vacuum-degassing.jpg" alt="Vacuum desiccator degassing" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Step 2 — Vacuum desiccator degassing until optically clear; pour onto master</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig5-4-curing-oven.jpg" alt="Thermal curing 70°C" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Step 3 — Thermal curing at 70 °C for 2.5 h (Mason convection oven)</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig5-5-demoulding.jpg" alt="Scalpel trim, peel, biopsy punch" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Step 4 — Perimeter cut → controlled peel → biopsy punch inlet holes</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig5-6-plasma-bonding.jpg" alt="Oxygen plasma bonding" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Step 5 — Plasma activation (60 s, 100 W) → roller seal → 70 °C bake → 45 min vacuum prime</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute top-0 left-0 w-full flex gap-1.5 px-3 pt-3 z-10 pointer-events-none">
+            <div class="pb-bar"><div class="pb-fill" id="fab-pb-0"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="fab-pb-1"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="fab-pb-2"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="fab-pb-3"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="fab-pb-4"></div></div>
+          </div>
+          <button class="gal-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="fab"><i class="fa fa-chevron-left text-xs"></i></button>
+          <button class="gal-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="fab"><i class="fa fa-chevron-right text-xs"></i></button>
+        </div>
+        <div id="fab-dots" class="flex justify-center gap-1.5 mt-3"></div>
+      </div>
+
+      <!-- PLATFORM gallery -->
+      <div>
+        <h3 class="font-semibold text-base mb-2 flex items-center gap-2"><i class="fa fa-cogs text-blue-500"></i> Rotational Indexing Platform</h3>
+        <p class="text-slate-500 text-xs leading-relaxed mb-5">Iterative SolidWorks design FDM-printed in PLA. V1 used a full-coverage retainer plate; the final version introduced a spring-loaded latch and local chip covers, enabling tool-free 90° indexing with four locating pins to eliminate backlash.</p>
+        <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900" style="aspect-ratio:4/3">
+          <div class="gallery-track h-full" id="plat-track">
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig5-8-platform-v1-cad.jpg" alt="Platform V1 CAD exploded view" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">V1 CAD — circular carrier with cross-shaped optical windows for in-situ monitoring</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig5-9-final-platform-cad.jpg" alt="Final platform CAD with spring latch" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Final design — spring-loaded latch + local retaining cover; 86:22 gear train (r = 54 mm)</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig3-1-rotational-platform.jpg" alt="Assembled platform in safety enclosure" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Assembled — operated inside transparent safety enclosure at 5 Hz (≈ 5.4 g at 54 mm)</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig5-10-experimental-protocol.jpg" alt="Sequential experimental protocol" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Protocol — static prime → 0° capture spin (12 min) → 90° index → relocation spin (12 min)</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute top-0 left-0 w-full flex gap-1.5 px-3 pt-3 z-10 pointer-events-none">
+            <div class="pb-bar"><div class="pb-fill" id="plat-pb-0"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="plat-pb-1"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="plat-pb-2"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="plat-pb-3"></div></div>
+          </div>
+          <button class="gal-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="plat"><i class="fa fa-chevron-left text-xs"></i></button>
+          <button class="gal-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="plat"><i class="fa fa-chevron-right text-xs"></i></button>
+        </div>
+        <div id="plat-dots" class="flex justify-center gap-1.5 mt-3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 3  KEY RESULTS ──────────────────────────── -->
+<section class="py-16 bg-slate-50 border-b border-slate-100 reveal">
+  <div class="max-w-5xl mx-auto px-5">
+    <h2 class="text-2xl font-bold mb-1">Key Results</h2>
+    <p class="text-slate-500 text-sm mb-4">Fixed mammalian cells (15–20 µm) in PBS, spun at 5 Hz (≈ 5.4 g) for 12 minutes per loading phase.</p>
+    <div class="rounded-xl bg-green-50 border border-green-100 px-5 py-4 mb-10 text-slate-700 text-sm leading-relaxed">
+      <strong>In short:</strong> Single-cell capture was confirmed in the distal region of the array — occupancy above the Poisson-random baseline. After 90° indexing, captured cells were successfully transferred into the co-location chambers, providing <strong>proof-of-concept for valve-free, deterministic cell routing</strong> on a centrifugal platform.
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+      <!-- Result 1 -->
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">1</div>
+          <h3 class="font-semibold text-base">Single-Cell Capture in Trap Pocket</h3>
+        </div>
+        <div class="relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900" style="aspect-ratio:4/3">
+          <div class="gallery-track h-full" id="r1-track">
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig6-3c-distal-capture.jpg" alt="Fig 6.3c Distal region – single-cell capture confirmed" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Distal region — traps flooded; single cells lodged in 24.55 µm trap pockets ✓</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig6-3b-medial-region.jpg" alt="Fig 6.3b Medial region – sporadic capture" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Medial region — sporadic captures in transitional wet/dry zone</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig6-3a-proximal-dryout.jpg" alt="Fig 6.3a Proximal dry-out" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Proximal region — dry-out due to limited reservoir volume</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute top-0 left-0 w-full flex gap-1.5 px-3 pt-3 z-10 pointer-events-none">
+            <div class="pb-bar"><div class="pb-fill" id="r1-pb-0"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="r1-pb-1"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="r1-pb-2"></div></div>
+          </div>
+          <button class="gal-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="r1"><i class="fa fa-chevron-left text-xs"></i></button>
+          <button class="gal-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="r1"><i class="fa fa-chevron-right text-xs"></i></button>
+        </div>
+        <div id="r1-dots" class="flex justify-center gap-1.5 mt-3"></div>
+        <p class="text-slate-500 text-xs mt-3 leading-relaxed">Individual cells lodged in the trap pocket act as hydrodynamic plugs, diverting subsequent cells to neighbouring empty pockets — confirming deterministic single-cell capture above Poisson-loading occupancy in the wetted distal region.</p>
+      </div>
+
+      <!-- Result 2 -->
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-7 h-7 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center">2</div>
+          <h3 class="font-semibold text-base">Cell Relocation into Co-Location Chamber</h3>
+        </div>
+        <div class="relative rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900" style="aspect-ratio:4/3">
+          <div class="gallery-track h-full" id="r2-track">
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig6-4a-relocation-proof.jpg" alt="Fig 6.4a Cell relocated into 57.83 µm co-location chamber" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Magnified — cell transferred from pocket into 57.83 µm chamber after 90° index ✓</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig6-4b-capture-survey.jpg" alt="Fig 6.4b Array survey – red successful, green clusters, orange failed" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Distal array survey — successful (red), clusters (green), failed (orange)</p>
+              </div>
+            </div>
+            <div class="gallery-slide h-full relative">
+              <img src="../images/works1/fig5-7-metrology.jpg" alt="Fig 5.7 Keyence metrology – master vs PDMS replica" class="zoomable w-full h-full object-cover">
+              <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-3 pt-10 pointer-events-none">
+                <p class="text-white text-xs font-medium">Keyence metrology — master aperture 21.50 µm vs. PDMS replica 24.55 µm (+14% dimensional expansion due to PDMS replication)</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute top-0 left-0 w-full flex gap-1.5 px-3 pt-3 z-10 pointer-events-none">
+            <div class="pb-bar"><div class="pb-fill" id="r2-pb-0"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="r2-pb-1"></div></div>
+            <div class="pb-bar"><div class="pb-fill" id="r2-pb-2"></div></div>
+          </div>
+          <button class="gal-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="r2"><i class="fa fa-chevron-left text-xs"></i></button>
+          <button class="gal-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="r2"><i class="fa fa-chevron-right text-xs"></i></button>
+        </div>
+        <div id="r2-dots" class="flex justify-center gap-1.5 mt-3"></div>
+        <p class="text-slate-500 text-xs mt-3 leading-relaxed">After 90° indexing, cells were driven through the 30 µm transfer channel and remained stably confined in the low-shear co-location chamber — a proof-of-concept for deterministic, valve-free cell routing on a centrifugal platform.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── REFLECTION ────────────────────────────────────────── -->
+<section class="py-20 bg-slate-50 reveal">
+  <div class="max-w-5xl mx-auto px-5">
+
+    <h2 class="text-2xl font-bold mb-6">Reflection</h2>
+    <div class="rounded-2xl border-l-4 border-blue-500 bg-white px-7 py-6 shadow-sm">
+      <p class="text-slate-600 leading-relaxed italic text-sm">"This project gave me end-to-end research experience: translating a vague brief into measurable engineering objectives, owning a complete soft-lithography fabrication workflow, and using quantitative metrology to interpret experimental results. Designing the 3D-printed indexing platform through two full iterations — identifying a kinematic symmetry limitation and implementing a practical manual workaround — was a direct lesson in pragmatic engineering decision-making under real project constraints."</p>
+    </div>
+
+    <div class="border-t border-slate-200 my-10"></div>
+
+    <h3 class="text-lg font-semibold text-slate-700 mb-6">Tools &amp; Skills Applied</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+        <i class="fa fa-cube text-2xl mb-2" style="color:#1a365d"></i>
+        <p class="font-semibold text-slate-900 text-sm mb-0.5">SolidWorks CAD</p>
+        <p class="text-slate-400 text-xs">Platform design &amp; drawings</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+        <i class="fa fa-print text-2xl mb-2" style="color:#1a365d"></i>
+        <p class="font-semibold text-slate-900 text-sm mb-0.5">FDM 3D Printing</p>
+        <p class="text-slate-400 text-xs">PLA structural components</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+        <i class="fa fa-flask text-2xl mb-2" style="color:#1a365d"></i>
+        <p class="font-semibold text-slate-900 text-sm mb-0.5">Soft Lithography</p>
+        <p class="text-slate-400 text-xs">PDMS chip fabrication</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+        <i class="fa fa-search text-2xl mb-2" style="color:#1a365d"></i>
+        <p class="font-semibold text-slate-900 text-sm mb-0.5">Keyence Microscopy</p>
+        <p class="text-slate-400 text-xs">Planar metrology (ImageJ)</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+        <i class="fa fa-cogs text-2xl mb-2" style="color:#1a365d"></i>
+        <p class="font-semibold text-slate-900 text-sm mb-0.5">Gear Mechanism Design</p>
+        <p class="text-slate-400 text-xs">86:22 spur gear indexing</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+        <i class="fa fa-tint text-2xl mb-2" style="color:#1a365d"></i>
+        <p class="font-semibold text-slate-900 text-sm mb-0.5">Plasma Bonding</p>
+        <p class="text-slate-400 text-xs">PDMS-to-glass sealing</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+        <i class="fa fa-bar-chart text-2xl mb-2" style="color:#1a365d"></i>
+        <p class="font-semibold text-slate-900 text-sm mb-0.5">Risk Assessment</p>
+        <p class="text-slate-400 text-xs">BSL-1, COSHH, rotating safety</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 flex flex-col items-center text-center hover:shadow-md transition">
+        <i class="fa fa-book text-2xl mb-2" style="color:#1a365d"></i>
+        <p class="font-semibold text-slate-900 text-sm mb-0.5">Technical Writing</p>
+        <p class="text-slate-400 text-xs">MEng thesis, DCU 2026</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── THESIS ONLY (THISIS) ─────────────────────────────── -->
+<section class="py-14 border-t border-slate-100 reveal">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="rounded-2xl border-2 border-dashed border-slate-300 hover:border-purple-400 transition bg-white px-7 py-8 flex flex-col justify-between gap-5">
+      <div>
+        <p class="text-xs uppercase tracking-widest text-slate-400 mb-2">Full Thesis</p>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">MEng Thesis — Zihan Miao, DCU 2026</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          PDMS Microfluidic Chip for Multi-Cell Capture and Storage. Full dissertation including literature review, methodology, results and conclusions.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="../docs/master-thesis-zihan-miao.pdf" target="_blank"
+           class="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 transition text-white font-semibold text-sm px-5 py-2.5 rounded-xl">
+          <i class="fa fa-eye"></i> Preview
+        </a>
+        <a href="../docs/master-thesis-zihan-miao.pdf" download
+           class="flex items-center gap-2 border border-purple-300 text-purple-700 hover:bg-purple-50 transition font-semibold text-sm px-5 py-2.5 rounded-xl">
+          <i class="fa fa-download"></i> Download PDF
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER NAV -->
+<div class="border-t border-slate-100 py-8">
+  <div class="max-w-5xl mx-auto px-5 flex justify-between items-center text-sm">
+    <a href="../index.html#projects" class="text-blue-600 hover:underline flex items-center gap-1"><i class="fa fa-arrow-left text-xs"></i> Back to Projects</a>
+    <a href="work2.html"             class="text-blue-600 hover:underline flex items-center gap-1">Next Project <i class="fa fa-arrow-right text-xs"></i></a>
+  </div>
+</div>
+
+<footer class="py-8 bg-slate-900 text-center text-slate-400 text-sm">© 2026 Zihan Miao. All rights reserved.</footer>
+
+<button id="btt" class="fixed bottom-8 right-8 w-11 h-11 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+  <i class="fa fa-arrow-up text-sm"></i>
+</button>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox fixed inset-0 z-[60] hidden flex-col items-center justify-center p-4">
+  <button id="lb-close" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white text-3xl flex items-center justify-center transition">&times;</button>
+  <img id="lb-img" src="" alt="" class="max-w-[95vw] max-h-[83vh] object-contain rounded-md shadow-2xl">
+  <p id="lb-cap" class="text-white/70 text-sm mt-4 max-w-xl text-center"></p>
+</div>
+
+<script>
+// galleries
+const galleries = {};
+function initGallery(id) {
+  const track = document.getElementById(id + '-track');
+  if (!track) return;
+  const slides = track.querySelectorAll('.gallery-slide');
+  const n = slides.length;
+  const dotsEl = document.getElementById(id + '-dots');
+  let cur = 0;
+  const dotEls = [];
+  if (dotsEl) {
+    for (let i = 0; i < n; i++) {
+      const d = document.createElement('span');
+      d.className = 'inline-block h-2 rounded-full bg-slate-300 transition-all duration-300 cursor-pointer';
+      d.style.width = '.5rem';
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+      dotEls.push(d);
+    }
+  }
+  function goTo(i) {
+    cur = ((i % n) + n) % n;
+    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dotEls.forEach((d, j) => {
+      d.style.width = j === cur ? '1.5rem' : '.5rem';
+      d.style.background = j === cur ? '#1e3a5f' : '#cbd5e1';
+    });
+    for (let j = 0; j < n; j++) {
+      const pb = document.getElementById(id + '-pb-' + j);
+      if (!pb) continue;
+      pb.style.transition = 'none';
+      pb.style.width = j === cur ? '100%' : '0%';
+    }
+  }
+  goTo(0);
+  galleries[id] = { prev: () => goTo(cur - 1), next: () => goTo(cur + 1) };
+}
+['fab','plat','r1','r2'].forEach(initGallery);
+document.querySelectorAll('.gal-prev').forEach(btn =>
+  btn.addEventListener('click', () => galleries[btn.dataset.gal]?.prev()));
+document.querySelectorAll('.gal-next').forEach(btn =>
+  btn.addEventListener('click', () => galleries[btn.dataset.gal]?.next()));
+
+// lightbox
+const lb    = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+const lbCap = document.getElementById('lb-cap');
+document.querySelectorAll('img.zoomable').forEach(img => {
+  img.addEventListener('click', () => {
+    lbImg.src = img.src;
+    lbCap.textContent = img.alt;
+    lb.classList.remove('hidden');
+    lb.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  });
+});
+function closeLB() {
+  lb.classList.add('hidden');
+  lb.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+document.getElementById('lb-close').addEventListener('click', closeLB);
+lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
+// scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// back to top
+const btt = document.getElementById('btt');
+window.addEventListener('scroll', () => {
+  const show = scrollY > 300;
+  btt.classList.toggle('opacity-0', !show);
+  btt.classList.toggle('invisible', !show);
+});
+btt.addEventListener('click', () => scrollTo({ top:0, behavior:'smooth' }));
+
+// mobile menu
+document.getElementById('mob-btn')?.addEventListener('click', () =>
+  document.getElementById('mob-menu').classList.toggle('hidden'));
+</script>
+</body>
+</html>
