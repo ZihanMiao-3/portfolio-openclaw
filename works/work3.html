@@ -74,55 +74,65 @@
   </div>
 </section>
 
-<!-- ── SECTION 1  THE SETUP ─────────────────────────────── -->
+<!-- ── SECTION 1  THE SETUP ────────────────────────────── -->
 <section class="py-16 border-b border-slate-100 reveal">
   <div class="max-w-5xl mx-auto px-5">
     <h2 class="text-2xl font-bold mb-1">The Setup</h2>
 
     <div class="rounded-xl bg-slate-50 border border-slate-200 px-6 py-5 mb-8 text-slate-700 text-sm leading-relaxed">
       <p class="font-semibold text-slate-900 mb-1">A mini server farm for plastic</p>
-      <p>The lab ran a heterogeneous fleet of FDM/FFF printers — different models, different quirks. Every machine was connected through a Raspberry Pi running OctoPrint, aggregated under a single 3DPrinterOS queue. Users uploaded STLs through a web portal, and prints were scheduled automatically across available machines. My job was to keep the whole pipeline — hardware, software, and the humans in between — running smoothly.</p>
+      <p>The lab ran a heterogeneous fleet of Original Prusa MK4 FDM printers — same platform, different quirks. Each machine was paired with a Raspberry&nbsp;Pi running OctoPrint and aggregated into a single 3DPrinterOS queue. Users uploaded STLs through a web portal, and jobs were auto‑scheduled across available machines. My job was to keep the entire pipeline — hardware, software and the humans in between — running smoothly.</p>
     </div>
 
-    <!-- Architecture highlights -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       <div class="rounded-xl border border-slate-200 p-5 bg-white">
         <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 font-bold text-base flex items-center justify-center mb-3">1</div>
         <h4 class="font-semibold mb-1 text-sm">Hardware Layer</h4>
-        <p class="text-slate-500 text-xs leading-relaxed">24 printers with diverse build volumes and nozzle configurations. Each Pi handled one-to-one printer control, enabling remote monitoring, time-lapse capture, and real-time error alerts.</p>
+        <p class="text-slate-500 text-xs leading-relaxed">24 Original Prusa MK4 printers with different build volumes, nozzle sizes and use profiles. Each Raspberry&nbsp;Pi handled one‑to‑one printer control, enabling remote monitoring, time‑lapse capture and real‑time error alerts.</p>
       </div>
       <div class="rounded-xl border border-slate-200 p-5 bg-white">
         <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 font-bold text-base flex items-center justify-center mb-3">2</div>
         <h4 class="font-semibold mb-1 text-sm">Software Stack</h4>
-        <p class="text-slate-500 text-xs leading-relaxed">3DPrinterOS orchestrated the print queue with automatic bed assignment, g-code streaming, and job history. OctoPrint provided per-machine telemetry — nozzle temp, bed temp, print progress at a glance.</p>
+        <p class="text-slate-500 text-xs leading-relaxed">3DPrinterOS orchestrated the print queue with automatic bed assignment, G‑code streaming and job history tracking. OctoPrint provided per‑machine telemetry — nozzle temperature, bed temperature and print progress at a glance.</p>
       </div>
       <div class="rounded-xl border border-slate-200 p-5 bg-white">
         <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 font-bold text-base flex items-center justify-center mb-3">3</div>
         <h4 class="font-semibold mb-1 text-sm">Support Pipeline</h4>
-        <p class="text-slate-500 text-xs leading-relaxed">Students submitted support tickets or walked in during lab hours. Issues ranged from slicing settings (Cura profiles, infill, supports) to hardware faults (clogs, bed adhesion, thermistor failures).</p>
+        <p class="text-slate-500 text-xs leading-relaxed">Students submitted support tickets or walked in during lab hours, and I was the first line of support. Issues ranged from slicing settings (Cura profiles, infill, supports) to hardware faults (clogs, bed adhesion, thermistor failures).</p>
       </div>
     </div>
   </div>
-</section>
-
-<!-- ── SECTION 2  DAILY OPERATIONS ───────────────────────── -->
+</section>\n<!-- ── SECTION 2  DAILY OPERATIONS ────────────────────────────────── -->
 <section class="py-16 border-b border-slate-100 reveal">
   <div class="max-w-5xl mx-auto px-5">
     <h2 class="text-2xl font-bold mb-1">Daily Operations</h2>
-    <p class="text-slate-500 text-sm mb-4">Routine that kept failure rates manageable across two semesters.</p>
+    <p class="text-slate-500 text-sm mb-4">The routines that kept failure rates manageable across two academic cycles.</p>
 
-    <!-- Insert fleet management image here -->
-    <div class="rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 mb-8 flex items-center justify-center text-slate-400 text-sm h-48">
-      <span class="flex items-center gap-2"><i class="fa fa-image"></i> Fleet overview photo — coming soon</span>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-2xl border border-slate-200 bg-slate-50 mb-8 p-4">
+      <figure>
+        <div class="w-full h-40 md:h-48 rounded-xl bg-slate-200 flex items-center justify-center text-slate-500 text-xs">
+          Fleet overview photo – placeholder
+        </div>
+        <figcaption class="mt-2 text-xs text-slate-500">
+          Overview of the 24‑printer Prusa MK4 fleet I maintained at DCU.
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="w-full h-40 md:h-48 rounded-xl bg-slate-200 flex items-center justify-center text-slate-500 text-xs">
+          Maintenance / error screenshot – placeholder
+        </div>
+        <figcaption class="mt-2 text-xs text-slate-500">
+          Typical maintenance or failure mode I diagnosed and resolved (for example, a clogged extruder or thermal runaway error).
+        </figcaption>
+      </figure>
     </div>
 
     <div class="rounded-xl bg-green-50 border border-green-100 px-5 py-4 mb-10 text-slate-700 text-sm leading-relaxed">
-      <strong>Shift rhythm:</strong> Each morning started with a walk-through — check active prints, clear completed jobs, scrape beds, reload filament. Then the firefighting began: failed prints, unresponsive Pis, students who accidentally clicked "print all" on a 300-file batch.
+      <strong>Shift rhythm:</strong> Each morning started with a walk‑through — check active prints, clear completed jobs, scrape beds, reload filament. Then the firefighting began: failed prints, unresponsive Pis, students who accidentally clicked &ldquo;print all&rdquo; on a 300‑file batch.
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-      <!-- Preventative Maintenance -->
       <div>
         <div class="flex items-center gap-2 mb-3">
           <div class="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">A</div>
@@ -136,7 +146,6 @@
         </div>
       </div>
 
-      <!-- Troubleshooting -->
       <div>
         <div class="flex items-center gap-2 mb-3">
           <div class="w-7 h-7 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center">B</div>
@@ -146,50 +155,150 @@
           <p><span class="font-medium text-slate-800">Hardware:</span> Jammed extruders, warped build plates, failed bed leveling probes, power supply failures.</p>
           <p><span class="font-medium text-slate-800">Software:</span> G-code parsing errors, OctoPrint plugin conflicts, 3DPrinterOS connectivity drops.</p>
           <p><span class="font-medium text-slate-800">User side:</span> STL manifold issues, overhangs without supports, unrealistic tolerance expectations.</p>
-          <p><span class="font-medium text-slate-800">Approach:</span> Diagnose remotely first via Pi telemetry, escalate to physical intervention when needed.</p>
+          <p><span class="font-medium text-slate-800">Approach:</span> Diagnose remotely first via Raspberry&nbsp;Pi telemetry and 3DPrinterOS logs, then escalate to physical intervention when needed.</p>
         </div>
       </div>
 
     </div>
   </div>
-</section>
-
-<!-- ── SECTION 3  PROJECT SUPPORT ────────────────────────── -->
+</section>\n<!-- ── SECTION 3  CAPSTONE & COURSEWORK SUPPORT ──────────── -->
 <section class="py-16 bg-slate-50 border-b border-slate-100 reveal">
   <div class="max-w-5xl mx-auto px-5">
     <h2 class="text-2xl font-bold mb-1">Capstone &amp; Coursework Support</h2>
-    <p class="text-slate-500 text-sm mb-4">Beyond lab operations, I advised students on physical prototype builds throughout the academic year.</p>
+    <p class="text-slate-500 text-sm mb-4">Beyond lab operations, I advised students on physical prototype builds and printability throughout the academic year.</p>
 
-    <!-- Insert prototype examples image here -->
-    <div class="rounded-2xl border-2 border-dashed border-slate-300 bg-white mb-8 flex items-center justify-center text-slate-400 text-sm h-48">
-      <span class="flex items-center gap-2"><i class="fa fa-image"></i> Prototype examples — coming soon</span>
+    <div class="rounded-2xl border-2 border-dashed border-slate-300 bg-white mb-8 p-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-500">
+        <div class="h-32 rounded-xl bg-slate-100 flex items-center justify-center">
+          Prototype photo – placeholder (student capstone part)
+        </div>
+        <div class="h-32 rounded-xl bg-slate-100 flex items-center justify-center">
+          Prototype photo – placeholder (wind‑tunnel model or jig)
+        </div>
+        <div class="h-32 rounded-xl bg-slate-100 flex items-center justify-center">
+          Prototype photo – placeholder (assembly / fit check)
+        </div>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       <div class="rounded-xl border border-slate-200 p-5 bg-white">
         <div class="w-9 h-9 rounded-full bg-orange-50 text-orange-600 font-bold text-base flex items-center justify-center mb-3"><i class="fa fa-cube text-sm"></i></div>
         <h4 class="font-semibold mb-1 text-sm">CAD Design Review</h4>
-        <p class="text-slate-500 text-xs leading-relaxed">Reviewed SolidWorks part models for printability — wall thickness, overhang angles, fillet radii. Often recommended redesigns that reduced support material and print time by 30-40%.</p>
+        <p class="text-slate-500 text-xs leading-relaxed">Reviewed SolidWorks part models for printability — wall thickness, overhang angles, fillet radii and tolerance stack‑ups. Often recommended redesigns that significantly reduced support material and print time (typically by 30–40%).</p>
       </div>
       <div class="rounded-xl border border-slate-200 p-5 bg-white">
         <div class="w-9 h-9 rounded-full bg-orange-50 text-orange-600 font-bold text-base flex items-center justify-center mb-3"><i class="fa fa-file-text-o text-sm"></i></div>
         <h4 class="font-semibold mb-1 text-sm">Drawing Verification</h4>
-        <p class="text-slate-500 text-xs leading-relaxed">Cross-checked engineering drawings against printed prototypes — verified critical dimensions with callipers and flagged discrepancies between CAD and as-built geometry.</p>
+        <p class="text-slate-500 text-xs leading-relaxed">Cross‑checked engineering drawings against printed prototypes — verified critical dimensions with callipers and flagged discrepancies between CAD intent and as‑built geometry.</p>
       </div>
       <div class="rounded-xl border border-slate-200 p-5 bg-white">
         <div class="w-9 h-9 rounded-full bg-orange-50 text-orange-600 font-bold text-base flex items-center justify-center mb-3"><i class="fa fa-wrench text-sm"></i></div>
         <h4 class="font-semibold mb-1 text-sm">Material Selection</h4>
-        <p class="text-slate-500 text-xs leading-relaxed">Advised on PLA vs PETG vs ABS based on mechanical requirements — a wind-tunnel model needed different material behaviour than a functional jig used on a drill press.</p>
+        <p class="text-slate-500 text-xs leading-relaxed">Advised on PLA vs PETG vs ABS based on mechanical and thermal requirements — for example, a wind‑tunnel model needed different behaviour than a functional jig used on a drill press.</p>
       </div>
       <div class="rounded-xl border border-slate-200 p-5 bg-white">
         <div class="w-9 h-9 rounded-full bg-orange-50 text-orange-600 font-bold text-base flex items-center justify-center mb-3"><i class="fa fa-book text-sm"></i></div>
         <h4 class="font-semibold mb-1 text-sm">SOP Documentation</h4>
-        <p class="text-slate-500 text-xs leading-relaxed">Wrote standard operating procedures covering printer startup, filament change, bed levelling, and emergency stop — standardising training for new lab users and casual staff.</p>
+        <p class="text-slate-500 text-xs leading-relaxed">Wrote standard operating procedures covering printer startup, filament change, bed levelling and emergency stops — standardising training for new lab users and casual staff.</p>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <h3 class="font-semibold text-base mb-1">Open Days &amp; Outreach</h3>
+      <p class="text-slate-500 text-xs mb-4">During faculty open days, I explained how the 3D printing lab works to visiting secondary school students, walking them through a nine‑printer cluster and a table of printed examples before giving a short talk on 3D printing workflows.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <figure>
+          <div class="w-full h-32 md:h-40 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
+            Open day exhibition setup – placeholder
+          </div>
+          <figcaption class="mt-1 text-[11px] text-slate-500">
+            Open day display with a nine‑printer Prusa MK4 cluster and student‑made prints.
+          </figcaption>
+        </figure>
+        <figure>
+          <div class="w-full h-32 md:h-40 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
+            Classroom talk – placeholder
+          </div>
+          <figcaption class="mt-1 text-[11px] text-slate-500">
+            View from the lectern during a talk on 3D printing fundamentals for ~70 visiting students.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>\n\n<!-- ── SECTION 4  CLASSROOM HARDWARE MINI-PROJECTS ──── -->
+<section class="py-16 bg-slate-50 border-b border-slate-100 reveal">
+  <div class="max-w-5xl mx-auto px-5">
+    <h2 class="text-2xl font-bold mb-1">Classroom Hardware Mini-Projects</h2>
+    <p class="text-slate-500 text-sm mb-6">
+      Small 3D-printed interventions that removed everyday friction for lecturers and students in the teaching space.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      <div class="rounded-xl border border-slate-200 p-5 bg-white flex flex-col gap-3">
+        <figure>
+          <div class="w-full h-40 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
+            Touchscreen dock photo – placeholder
+          </div>
+        </figure>
+        <h4 class="font-semibold text-sm text-slate-900">Touchscreen dock &amp; socket adapter</h4>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          I designed the entire touchscreen dock, including the 3D-printed enclosure and a removable threaded socket adapter,
+          to fit the existing Crestron panel and the room’s power layout.
+          The original unit was a loose tabletop device with a stiff power cable and no strain relief;
+          the new dock gives it a stable angled base and a side-mounted socket that can be wired from both sides and then fully enclosed,
+          keeping live terminals finger-safe while still easy to service.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 p-5 bg-white flex flex-col gap-3">
+        <figure>
+          <div class="w-full h-40 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
+            Projector cable hanger photo – placeholder
+          </div>
+        </figure>
+        <h4 class="font-semibold text-sm text-slate-900">Projector–lectern cable hanger</h4>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          The projector-to-lectern data cable used to hang loosely across desks and chair backs, creating clutter and trip risks.
+          I designed a wall-mounted hanger that parks the cable at eye level near the connection point,
+          so lecturers can grab it quickly without dragging it across the room and the cable jacket sees much less abuse.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 p-5 bg-white flex flex-col gap-3">
+        <figure>
+          <div class="w-full h-40 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
+            Screen bracket photo – placeholder
+          </div>
+        </figure>
+        <h4 class="font-semibold text-sm text-slate-900">Curved projector screen bracket</h4>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          The original projector screen end cap had a sharp corner that could catch on tables or chair backs when the screen was raised,
+          risking tears in the fabric.
+          I designed a curved 3D-printed bracket that snaps over the end cap so that, if it hits furniture, it slides rather than catches,
+          protecting both the screen and the room layout.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-slate-200 p-5 bg-white flex flex-col gap-3">
+        <figure>
+          <div class="w-full h-40 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
+            Speaker enclosure photo – placeholder
+          </div>
+        </figure>
+        <h4 class="font-semibold text-sm text-slate-900">3D-printed speaker enclosure</h4>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Outside the lab, I designed and printed a compact speaker enclosure, including the mounting pattern for the driver,
+          amplifier board and crossover.
+          The project combined CAD modelling for acoustics and manufacturability with practical wiring, soldering and assembly,
+          and it helped me think about vibration, clearances and serviceability in small enclosures.
+        </p>
       </div>
     </div>
   </div>
 </section>
-
 <!-- ── STATS BAR ─────────────────────────────────────────── -->
 <section class="py-12 reveal">
   <div class="max-w-5xl mx-auto px-5">
