@@ -108,24 +108,78 @@
     <h2 class="text-2xl font-bold mb-1">Daily Operations</h2>
     <p class="text-slate-500 text-sm mb-4">The routines that kept failure rates manageable across two academic cycles.</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 rounded-2xl border border-slate-200 bg-slate-50 mb-8 p-4">
-      <figure>
-        <div class="w-full h-40 md:h-48 rounded-xl bg-slate-200 flex items-center justify-center text-slate-500 text-xs">
-          Fleet overview photo – placeholder
+    
+    <!-- Fleet gallery -->
+    <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900 mb-8" style="aspect-ratio:4/3">
+      <div class="gallery-track h-full" id="wk3-fleet-track">
+        <div class="gallery-slide h-full relative">
+          <img src="../assets/images/work3/fleet/fleet-24-prusa-mk4-rack-overview-01.jpg" alt="24-printer Prusa MK4 fleet rack overview" class="zoomable w-full h-full object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+            <p class="text-white text-xs font-medium">24-printer Prusa MK4 rack — DCU fleet overview</p>
+          </div>
         </div>
-        <figcaption class="mt-2 text-xs text-slate-500">
-          Overview of the 24‑printer Prusa MK4 fleet I maintained at DCU.
-        </figcaption>
-      </figure>
-      <figure>
-        <div class="w-full h-40 md:h-48 rounded-xl bg-slate-200 flex items-center justify-center text-slate-500 text-xs">
-          Maintenance / error screenshot – placeholder
+        <div class="gallery-slide h-full relative">
+          <img src="../assets/images/work3/fleet/fleet-prusa-mk4-rack-with-prusament-01.jpg" alt="Prusa MK4 rack with Prusament spools" class="zoomable w-full h-full object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+            <p class="text-white text-xs font-medium">Rack with Prusament spools ready for production</p>
+          </div>
         </div>
-        <figcaption class="mt-2 text-xs text-slate-500">
-          Typical maintenance or failure mode I diagnosed and resolved (for example, a clogged extruder or thermal runaway error).
-        </figcaption>
-      </figure>
+        <div class="gallery-slide h-full relative">
+          <img src="../assets/images/work3/fleet/fleet-prusa-xl-overview-01.jpg" alt="Prusa XL overview" class="zoomable w-full h-full object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+            <p class="text-white text-xs font-medium">Prusa XL — large-format workstation</p>
+          </div>
+        </div>
+      </div>
+      <div class="absolute top-0 left-0 w-full flex gap-1.5 px-3 pt-3 z-10 pointer-events-none">
+        <div class="pb-bar"><div class="pb-fill" id="wk3-fleet-pb-0"></div></div>
+        <div class="pb-bar"><div class="pb-fill" id="wk3-fleet-pb-1"></div></div>
+        <div class="pb-bar"><div class="pb-fill" id="wk3-fleet-pb-2"></div></div>
+      </div>
+      <button class="gal-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="wk3-fleet"><i class="fa fa-chevron-left text-xs"></i></button>
+      <button class="gal-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="wk3-fleet"><i class="fa fa-chevron-right text-xs"></i></button>
     </div>
+    <div id="wk3-fleet-dots" class="flex justify-center gap-1.5 mb-10"></div>
+
+    <!-- Troubleshooting gallery -->
+    <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900 mb-10" style="aspect-ratio:4/3">
+      <div class="gallery-track h-full" id="wk3-trouble-track">
+        <div class="gallery-slide h-full relative">
+          <img src="../assets/images/work3/troubleshooting/troubleshooting-mk4-extruder-jam-front-01.jpg" alt="MK4 extruder jam front view" class="zoomable w-full h-full object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+            <p class="text-white text-xs font-medium">MK4 extruder jam — filament clog inside the hot end</p>
+          </div>
+        </div>
+        <div class="gallery-slide h-full relative">
+          <img src="../assets/images/work3/troubleshooting/troubleshooting-mk4-spaghetti-failed-print-01.jpg" alt="MK4 spaghetti failed print" class="zoomable w-full h-full object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+            <p class="text-white text-xs font-medium">Spaghetti failure — layer adhesion loss mid-print</p>
+          </div>
+        </div>
+        <div class="gallery-slide h-full relative">
+          <img src="../assets/images/work3/troubleshooting/troubleshooting-mk4-thermal-runaway-error-screen-01.jpg" alt="MK4 thermal runaway error screen" class="zoomable w-full h-full object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+            <p class="text-white text-xs font-medium">Thermal runaway error — OctoPrint alert screenshot</p>
+          </div>
+        </div>
+        <div class="gallery-slide h-full relative">
+          <img src="../assets/images/work3/troubleshooting/troubleshooting-mk4-damaged-heaterblock-front-01.jpg" alt="MK4 damaged heater block front" class="zoomable w-full h-full object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+            <p class="text-white text-xs font-medium">Damaged heater block — replaced after thermal runaway event</p>
+          </div>
+        </div>
+      </div>
+      <div class="absolute top-0 left-0 w-full flex gap-1.5 px-3 pt-3 z-10 pointer-events-none">
+        <div class="pb-bar"><div class="pb-fill" id="wk3-trouble-pb-0"></div></div>
+        <div class="pb-bar"><div class="pb-fill" id="wk3-trouble-pb-1"></div></div>
+        <div class="pb-bar"><div class="pb-fill" id="wk3-trouble-pb-2"></div></div>
+        <div class="pb-bar"><div class="pb-fill" id="wk3-trouble-pb-3"></div></div>
+      </div>
+      <button class="gal-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="wk3-trouble"><i class="fa fa-chevron-left text-xs"></i></button>
+      <button class="gal-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="wk3-trouble"><i class="fa fa-chevron-right text-xs"></i></button>
+    </div>
+    <div id="wk3-trouble-dots" class="flex justify-center gap-1.5 mb-10"></div>
+
 
     <div class="rounded-xl bg-green-50 border border-green-100 px-5 py-4 mb-10 text-slate-700 text-sm leading-relaxed">
       <strong>Shift rhythm:</strong> Each morning started with a walk‑through — check active prints, clear completed jobs, scrape beds, reload filament. Then the firefighting began: failed prints, unresponsive Pis, students who accidentally clicked &ldquo;print all&rdquo; on a 300‑file batch.
@@ -207,24 +261,36 @@
     <div class="mt-10">
       <h3 class="font-semibold text-base mb-1">Open Days &amp; Outreach</h3>
       <p class="text-slate-500 text-xs mb-4">During faculty open days, I explained how the 3D printing lab works to visiting secondary school students, walking them through a nine‑printer cluster and a table of printed examples before giving a short talk on 3D printing workflows.</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <figure>
-          <div class="w-full h-32 md:h-40 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
-            Open day exhibition setup – placeholder
+      <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900" style="aspect-ratio:4/3">
+      <div class="gallery-track h-full" id="wk3-openday-track">
+        <div class="gallery-slide h-full relative">
+          <img src="../assets/images/work3/events/event-openday-mk4-fleet-exhibition-01.jpg" alt="Open day MK4 fleet exhibition" class="zoomable w-full h-full object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+            <p class="text-white text-xs font-medium">Open day fleet exhibition — nine-printer MK4 cluster and student prints</p>
           </div>
-          <figcaption class="mt-1 text-[11px] text-slate-500">
-            Open day display with a nine‑printer Prusa MK4 cluster and student‑made prints.
-          </figcaption>
-        </figure>
-        <figure>
-          <div class="w-full h-32 md:h-40 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
-            Classroom talk – placeholder
+        </div>
+        <div class="gallery-slide h-full relative">
+          <img src="../assets/images/work3/events/event-openday-mk4-sample-table-01.jpg" alt="Open day sample table" class="zoomable w-full h-full object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+            <p class="text-white text-xs font-medium">Sample table — printed examples displayed for visiting students</p>
           </div>
-          <figcaption class="mt-1 text-[11px] text-slate-500">
-            View from the lectern during a talk on 3D printing fundamentals for ~70 visiting students.
-          </figcaption>
-        </figure>
+        </div>
+        <div class="gallery-slide h-full relative">
+          <img src="../assets/images/work3/events/event-openday-classroom-talk-console-view-01.jpg" alt="Open day classroom talk from lectern" class="zoomable w-full h-full object-cover">
+          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 pt-10 pointer-events-none">
+            <p class="text-white text-xs font-medium">Classroom talk — ~70 visiting students during open day</p>
+          </div>
+        </div>
       </div>
+      <div class="absolute top-0 left-0 w-full flex gap-1.5 px-3 pt-3 z-10 pointer-events-none">
+        <div class="pb-bar"><div class="pb-fill" id="wk3-openday-pb-0"></div></div>
+        <div class="pb-bar"><div class="pb-fill" id="wk3-openday-pb-1"></div></div>
+        <div class="pb-bar"><div class="pb-fill" id="wk3-openday-pb-2"></div></div>
+      </div>
+      <button class="gal-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="wk3-openday"><i class="fa fa-chevron-left text-xs"></i></button>
+      <button class="gal-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="wk3-openday"><i class="fa fa-chevron-right text-xs"></i></button>
+    </div>
+    <div id="wk3-openday-dots" class="flex justify-center gap-1.5 mt-3"></div>
     </div>
   </div>
 </section>\n\n<!-- ── SECTION 4  CLASSROOM HARDWARE MINI-PROJECTS ──── -->
@@ -239,9 +305,9 @@
 
       <div class="rounded-xl border border-slate-200 p-5 bg-white flex flex-col gap-3">
         <figure>
-          <div class="w-full h-40 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
-            Touchscreen dock photo – placeholder
-          </div>
+          <img src="../assets/images/work3/prototypes/touchscreen-dock/prototype-touchscreen-dock-with-socket-adapter-01.jpg"
+               alt="Touchscreen dock with removable socket adapter"
+               class="zoomable w-full h-40 rounded-lg object-cover">
         </figure>
         <h4 class="font-semibold text-sm text-slate-900">Touchscreen dock &amp; socket adapter</h4>
         <p class="text-xs text-slate-500 leading-relaxed">
@@ -255,9 +321,9 @@
 
       <div class="rounded-xl border border-slate-200 p-5 bg-white flex flex-col gap-3">
         <figure>
-          <div class="w-full h-40 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
-            Projector cable hanger photo – placeholder
-          </div>
+          <img src="../assets/images/work3/prototypes/cable-management/prototype-projector-cable-hanger-overview-01.jpg"
+               alt="Projector-lectern cable hanger mounted on wall"
+               class="zoomable w-full h-40 rounded-lg object-cover">
         </figure>
         <h4 class="font-semibold text-sm text-slate-900">Projector–lectern cable hanger</h4>
         <p class="text-xs text-slate-500 leading-relaxed">
@@ -269,9 +335,9 @@
 
       <div class="rounded-xl border border-slate-200 p-5 bg-white flex flex-col gap-3">
         <figure>
-          <div class="w-full h-40 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
-            Screen bracket photo – placeholder
-          </div>
+          <img src="../assets/images/work3/prototypes/projector-screen-bracket/prototype-curved-screen-end-bracket-closeup-01.jpg"
+               alt="Curved projector screen end bracket close-up"
+               class="zoomable w-full h-40 rounded-lg object-cover">
         </figure>
         <h4 class="font-semibold text-sm text-slate-900">Curved projector screen bracket</h4>
         <p class="text-xs text-slate-500 leading-relaxed">
@@ -284,9 +350,9 @@
 
       <div class="rounded-xl border border-slate-200 p-5 bg-white flex flex-col gap-3">
         <figure>
-          <div class="w-full h-40 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 text-xs">
-            Speaker enclosure photo – placeholder
-          </div>
+          <img src="../assets/images/work3/prototypes/speaker/prototype-3dprinted-speaker-enclosure-exterior-01.jpg"
+               alt="3D-printed speaker enclosure exterior"
+               class="zoomable w-full h-40 rounded-lg object-cover">
         </figure>
         <h4 class="font-semibold text-sm text-slate-900">3D-printed speaker enclosure</h4>
         <p class="text-xs text-slate-500 leading-relaxed">
@@ -453,9 +519,12 @@ function initGallery(id) {
   goTo(0);
   window['gal_' + id] = { prev: () => goTo(cur - 1), next: () => goTo(cur + 1) };
 }
+// Explicit gallery initialization
+['wk3-fleet','wk3-trouble','wk3-openday'].forEach(initGallery);
+
 document.querySelectorAll('[id$="-track"]').forEach(el => {
   const id = el.id.replace('-track', '');
-  if (['fab','plat','r1','r2'].includes(id)) return;
+  if (['fab','plat','r1','r2','wk3-fleet','wk3-trouble','wk3-openday'].includes(id)) return;
   initGallery(id);
 });
 document.querySelectorAll('.gal-prev').forEach(btn =>
