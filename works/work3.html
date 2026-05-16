@@ -102,7 +102,8 @@
       </div>
     </div>
   </div>
-</section>\n<!-- ── SECTION 2  DAILY OPERATIONS ────────────────────────────────── -->
+</section>
+<!-- ── SECTION 2  DAILY OPERATIONS ────────────────────────────────── -->
 <section class="py-16 border-b border-slate-100 reveal">
   <div class="max-w-5xl mx-auto px-5">
     <h2 class="text-2xl font-bold mb-1">Daily Operations</h2>
@@ -226,7 +227,8 @@
     </div>
 
   </div>
-</section>\n<!-- ── SECTION 3  CAPSTONE & COURSEWORK SUPPORT ──────────── -->
+</section>
+<!-- ── SECTION 3  CAPSTONE & COURSEWORK SUPPORT ──────────── -->
 <section class="py-16 bg-slate-50 border-b border-slate-100 reveal">
   <div class="max-w-5xl mx-auto px-5">
     <h2 class="text-2xl font-bold mb-1">Capstone &amp; Coursework Support</h2>
@@ -292,7 +294,9 @@
       <div id="wk3-openday-dots" class="flex justify-center gap-1.5 mt-3"></div>
     </div>
   </div>
-</section>\n\n<!-- ── SECTION 4  CLASSROOM HARDWARE MINI-PROJECTS ──── -->
+</section>
+
+<!-- ── SECTION 4  CLASSROOM HARDWARE MINI-PROJECTS ──── -->
 <section class="py-16 bg-slate-50 border-b border-slate-100 reveal">
   <div class="max-w-5xl mx-auto px-5">
     <h2 class="text-2xl font-bold mb-1">Classroom Hardware Mini-Projects</h2>
@@ -510,11 +514,7 @@ function initGallery(id) {
   goTo(0);
   window['gal_' + id] = { prev: () => goTo(cur - 1), next: () => goTo(cur + 1) };
 }
-document.querySelectorAll('[id$="-track"]').forEach(el => {
-  const id = el.id.replace('-track', '');
-  if (['fab','plat','r1','r2','wk3-fleet','wk3-trouble','wk3-openday'].includes(id)) return;
-  initGallery(id);
-});
+['wk3-fleet','wk3-trouble','wk3-openday'].forEach(initGallery);
 document.querySelectorAll('.gal-prev').forEach(btn =>
   btn.addEventListener('click', () => window['gal_' + btn.dataset.gal]?.prev()));
 document.querySelectorAll('.gal-next').forEach(btn =>
