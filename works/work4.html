@@ -153,14 +153,14 @@
         <section class="pt-16 pb-12 bg-gray-50">
             <div class="container mx-auto px-4">
                 <div class="max-w-5xl mx-auto">
-                    <h1 class="text-3xl md:text-5xl font-bold mb-4">Product Design Process</h1>
+                    <h1 class="text-3xl md:text-5xl font-bold mb-4">3D Printing Lab Automation</h1>
                     <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="px-4 py-2 bg-gray-200 rounded-full text-sm">UI/UX Design</span>
-                        <span class="px-4 py-2 bg-gray-200 rounded-full text-sm">Mobile App</span>
+                        <span class="px-4 py-2 bg-gray-200 rounded-full text-sm">Raspberry Pi</span>
+                        <span class="px-4 py-2 bg-gray-200 rounded-full text-sm">Automation</span>
                         <span class="px-4 py-2 bg-gray-200 rounded-full text-sm">2025</span>
                     </div>
                     <p class="text-gray-600 text-lg mb-8">
-                        Modern mobile application interface design with clean aesthetic and intuitive user experience. This project focuses on creating a seamless and visually appealing interface for a music streaming platform.
+                        Developed a Raspberry Pi-based monitoring system for 24 networked 3D printers using 3DPrinterOS. Created a real-time dashboard for print status tracking, queue management, and automated failure detection across the entire lab fleet.
                     </p>
                 </div>
             </div>
@@ -170,13 +170,22 @@
         <section class="py-12">
             <div class="container mx-auto px-4">
                 <div class="max-w-5xl mx-auto">
-                    <div class="relative cursor-pointer hover:opacity-90 transition-opacity" onclick="openImageViewer('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/90032b8a3adf4b169b1957cdb1e6afaf~tplv-a9rns2rl98-image.image?rcl=20251013164250F4993424CAEF794F6D63&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1760949774&amp;x-signature=eeDe93hSK4rMUlCMb%2Bw0fxqLCuM%3D')">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/90032b8a3adf4b169b1957cdb1e6afaf~tplv-a9rns2rl98-image.image?rcl=20251013164250F4993424CAEF794F6D63&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1760949774&amp;x-signature=eeDe93hSK4rMUlCMb%2Bw0fxqLCuM%3D" alt="Product Design Process" class="w-full h-auto rounded-lg">
-                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300">
-                            <span class="px-4 py-2 bg-white text-black text-sm font-medium rounded-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 hover:opacity-100">
-                                <i class="fa fa-search-plus mr-2"></i>查看大图
-                            </span>
+                    <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900" style="aspect-ratio:16/9">
+                        <div class="gallery-track h-full" id="wk4-track">
+                            <div class="gallery-slide h-full relative">
+                                <img src="../images/works4/4.1.jpg" alt="3D Printing Lab Automation overview" class="w-full h-full object-cover">
+                            </div>
+                            <div class="gallery-slide h-full relative">
+                                <img src="../images/works4/4.2.jpg" alt="3D Printing Lab Automation detail" class="w-full h-full object-cover">
+                            </div>
                         </div>
+                        <div class="absolute top-0 left-0 w-full flex gap-1.5 px-3 pt-3 z-10 pointer-events-none">
+                            <div class="pb-bar"><div class="pb-fill" id="wk4-pb-0"></div></div>
+                            <div class="pb-bar"><div class="pb-fill" id="wk4-pb-1"></div></div>
+                        </div>
+                        <button class="gal-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="wk4"><i class="fa fa-chevron-left text-xs"></i></button>
+                        <button class="gal-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-black/50 text-white hover:bg-black/75 flex items-center justify-center" data-gal="wk4"><i class="fa fa-chevron-right text-xs"></i></button>
+                        <div id="wk4-dots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 pointer-events-none"></div>
                     </div>
                 </div>
             </div>
@@ -191,20 +200,20 @@
                         <div class="fade-in">
                             <h2 class="text-2xl font-bold mb-6">Project Overview</h2>
                             <p class="text-gray-600 mb-6 leading-relaxed">
-                                The Millmane App is a music streaming platform designed for music enthusiasts who want a clean and intuitive interface to discover, stream, and organize their favorite music. The goal was to create a minimalist design that puts the focus on the content while providing powerful features for music discovery and management.
+                                Built on the fleet management experience from the 3D printing lab, this project automated printer monitoring, queue management, and failure detection across all 24 networked machines. Each printer ran a Raspberry Pi with OctoPrint, feeding telemetry into a unified dashboard.
                             </p>
                             <p class="text-gray-600 mb-6 leading-relaxed">
-                                The design challenge was to balance simplicity with functionality, ensuring that users could easily navigate through the app while having access to advanced features like personalized playlists, recommendations, and social sharing.
+                                The system tracked print progress, bed and nozzle temperatures, filament usage, and estimated completion times. Automated alerts for common failure modes (thermal runaway, filament jams, layer shifts) reduced downtime and freed up operator time for higher-value troubleshooting.
                             </p>
                             
                           
                             
                             <h3 class="text-xl font-semibold mb-4 mt-8">Tools Used</h3>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Figma</span>
-                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Adobe Photoshop</span>
-                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Adobe Illustrator</span>
-                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Principle</span>
+                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Raspberry Pi</span>
+                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">OctoPrint</span>
+                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">3DPrinterOS</span>
+                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Python</span>
                             </div>
                         </div>
                         
@@ -214,30 +223,30 @@
                             
                             <div class="space-y-8">
                                 <div>
-                                    <h3 class="text-xl font-semibold mb-2">Research &amp; Discovery</h3>
+                                    <h3 class="text-xl font-semibold mb-2">Hardware Setup</h3>
                                     <p class="text-gray-600">
-                                        Conducted user research to understand the needs and pain points of music streaming users. Analyzed competitors and identified opportunities for differentiation.
+                                        Each of the 24 Prusa MK4 printers was paired with a Raspberry Pi running OctoPrint for remote monitoring, G-code streaming, and telemetry collection via serial connection to the printer's control board.
                                     </p>
                                 </div>
                                 
                                 <div>
-                                    <h3 class="text-xl font-semibold mb-2">Wireframing</h3>
+                                    <h3 class="text-xl font-semibold mb-2">Dashboard Development</h3>
                                     <p class="text-gray-600">
-                                        Created low-fidelity wireframes to establish the app's structure and navigation flow, focusing on user-centered design principles.
+                                        Built a real-time web dashboard aggregating print status, temperature graphs, filament tracking, and failure alerts from all 24 printers into a single view — replacing the workflow of checking 24 separate OctoPrint tabs every morning.
                                     </p>
                                 </div>
                                 
                                 <div>
-                                    <h3 class="text-xl font-semibold mb-2">Visual Design</h3>
+                                    <h3 class="text-xl font-semibold mb-2">Alert System</h3>
                                     <p class="text-gray-600">
-                                        Developed a minimalist visual style with a dark color scheme that enhances the music listening experience while ensuring readability and usability.
+                                        Integrated automated notifications via Telegram for critical events: print completion, filament runout, thermal runaway detection, and extended idle time. This reduced average response time to printer failures significantly.
                                     </p>
                                 </div>
                                 
                                 <div>
-                                    <h3 class="text-xl font-semibold mb-2">Prototyping &amp; Testing</h3>
+                                    <h3 class="text-xl font-semibold mb-2">Queue Management</h3>
                                     <p class="text-gray-600">
-                                        Built interactive prototypes and conducted user testing to gather feedback and iterate on the design, ensuring a seamless and intuitive user experience.
+                                        Configured 3DPrinterOS for centralized queue management, enabling students to submit prints remotely and operators to prioritise, cancel, or reassign jobs across the fleet without walking to each machine.
                                     </p>
                                 </div>
                             </div>
@@ -454,6 +463,50 @@
             }
         });
         
+        // Gallery functions (shared from work3)
+        function initGallery(id) {
+          const track = document.getElementById(id + '-track');
+          if (!track) return;
+          const slides = track.querySelectorAll('.gallery-slide');
+          const n = slides.length;
+          if (n === 0) return;
+          const dotsEl = document.getElementById(id + '-dots');
+          let cur = 0;
+          const dotEls = [];
+          if (dotsEl) {
+            for (let i = 0; i < n; i++) {
+              const d = document.createElement('span');
+              d.className = 'inline-block h-2 rounded-full bg-slate-300 transition-all duration-300 cursor-pointer';
+              if (i === 0) d.classList.add('w-6', 'bg-white');
+              else d.classList.add('w-2');
+              d.dataset.idx = i;
+              d.addEventListener('click', function(e){ e.stopPropagation(); goTo(parseInt(this.dataset.idx)); });
+              dotsEl.appendChild(d);
+              dotEls.push(d);
+            }
+          }
+          function goTo(i) {
+            if (i < 0) i = n - 1;
+            if (i >= n) i = 0;
+            cur = i;
+            track.style.transform = 'translateX(' + (-i * 100) + '%)';
+            const pb = document.getElementById(id + '-pb-' + i);
+            if (pb) { pb.style.width = '100%'; }
+            dotEls.forEach((d, j) => {
+              d.classList.toggle('w-6', j === i);
+              d.classList.toggle('w-2', j !== i);
+              d.classList.toggle('bg-white', j === i);
+              d.classList.toggle('bg-slate-300', j !== i);
+            });
+          }
+          const prev = document.querySelector('[data-gal="' + id + '"].gal-prev');
+          const next = document.querySelector('[data-gal="' + id + '"].gal-next');
+          if (prev) prev.addEventListener('click', function(e){ e.stopPropagation(); goTo(cur - 1); });
+          if (next) next.addEventListener('click', function(e){ e.stopPropagation(); goTo(cur + 1); });
+          goTo(0);
+        }
+        ['wk4'].forEach(initGallery);
+
         // 图片查看器功能
         function openImageViewer(imageUrl) {
             const viewer = document.getElementById('image-viewer');

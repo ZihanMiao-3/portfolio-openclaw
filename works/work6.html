@@ -191,20 +191,20 @@
                         <div class="fade-in">
                             <h2 class="text-2xl font-bold mb-6">Project Overview</h2>
                             <p class="text-gray-600 mb-6 leading-relaxed">
-                                The Millmane App is a music streaming platform designed for music enthusiasts who want a clean and intuitive interface to discover, stream, and organize their favorite music. The goal was to create a minimalist design that puts the focus on the content while providing powerful features for music discovery and management.
+                                A personal home lab running on a Raspberry Pi 4 and a Linux server, hosting Docker containers for media streaming, file sync, local AI inference (Ollama), and a custom voice assistant named April. The goal was to build a self-hosted ecosystem that reduces reliance on cloud services.
                             </p>
                             <p class="text-gray-600 mb-6 leading-relaxed">
-                                The design challenge was to balance simplicity with functionality, ensuring that users could easily navigate through the app while having access to advanced features like personalized playlists, recommendations, and social sharing.
+                                The project evolved from a simple Pi-based print server into a fully automated environment with scheduled backups, network-wide ad blocking, temperature monitoring, and voice-controlled home automation through a custom Node.js backend.
                             </p>
                             
                             
                             
                             <h3 class="text-xl font-semibold mb-4 mt-8">Tools Used</h3>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Figma</span>
-                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Adobe Photoshop</span>
-                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Adobe Illustrator</span>
-                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Principle</span>
+                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Linux</span>
+                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Docker</span>
+                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Python</span>
+                                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Node.js</span>
                             </div>
                         </div>
                         
@@ -214,30 +214,30 @@
                             
                             <div class="space-y-8">
                                 <div>
-                                    <h3 class="text-xl font-semibold mb-2">Research &amp; Discovery</h3>
+                                    <h3 class="text-xl font-semibold mb-2">Server Infrastructure</h3>
                                     <p class="text-gray-600">
-                                        Conducted user research to understand the needs and pain points of music streaming users. Analyzed competitors and identified opportunities for differentiation.
+                                        Set up a Linux server with Docker Compose for service orchestration. Deployed containers for media streaming (Jellyfin), file sync (Syncthing), ad blocking (Pi-hole), and AI inference (Ollama). Managed reverse proxy with Nginx and automatic SSL via Let's Encrypt.
                                     </p>
                                 </div>
                                 
                                 <div>
-                                    <h3 class="text-xl font-semibold mb-2">Wireframing</h3>
+                                    <h3 class="text-xl font-semibold mb-2">Voice Assistant</h3>
                                     <p class="text-gray-600">
-                                        Created low-fidelity wireframes to establish the app's structure and navigation flow, focusing on user-centered design principles.
+                                        Built a custom voice assistant named April running on a Raspberry Pi, using OpenAI-compatible APIs for natural language understanding, Azure TTS for speech output, and custom skill plugins for home control (lights, weather, timers, music).
                                     </p>
                                 </div>
                                 
                                 <div>
-                                    <h3 class="text-xl font-semibold mb-2">Visual Design</h3>
+                                    <h3 class="text-xl font-semibold mb-2">Automation</h3>
                                     <p class="text-gray-600">
-                                        Developed a minimalist visual style with a dark color scheme that enhances the music listening experience while ensuring readability and usability.
+                                        Wrote Python scripts for scheduled tasks: temperature logging, disk usage alerts, automatic backup rotation, and power management. Integrated with MQTT for IoT device communication and sensor data collection.
                                     </p>
                                 </div>
                                 
                                 <div>
-                                    <h3 class="text-xl font-semibold mb-2">Prototyping &amp; Testing</h3>
+                                    <h3 class="text-xl font-semibold mb-2">Monitoring &amp; Dashboards</h3>
                                     <p class="text-gray-600">
-                                        Built interactive prototypes and conducted user testing to gather feedback and iterate on the design, ensuring a seamless and intuitive user experience.
+                                        Deployed Prometheus + Grafana for system monitoring, tracking CPU temperature, memory usage, disk health, and network traffic. Configured alerting rules for anomalous behaviour and proactive maintenance.
                                     </p>
                                 </div>
                             </div>
